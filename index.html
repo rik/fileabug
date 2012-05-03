@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>File a bug</title>
+
+<form id="url-form">
+    <input name="url">
+    <input type="submit" value="File it">
+</form>
+
+<script>
+(function () {
+var trackers;
+var error_elt;
+
+function init() {
+    var req = new XMLHttpRequest();
+    req.open('GET', 'trackers.json', true);
+    req.onload = trackersReady.bind(undefined, req);
+    req.send(null);
+}
+init();
+
+function trackersReady(req) {
+    trackers = JSON.parse(req.response);
+    initUI();
+}
+
+function initUI() {
+    var form = document.getElementById('url-form');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var url = document.getElementsByName('url')[0];
+        redirectToBugTracker(url.value);
+    }, false);
+}
+
+function redirectToBugTracker(url) {
+    var got_a_match = false;
+
+    trackers.forEach(function (tracker) {
+        var reg = new RegExp(tracker.regexp);
+        if (reg.test(url)) {
+            got_a_match = true;
+            window.location = tracker.tracker;
+        }
+    })
+
+    if (got_a_match) {
+        return;
+    }
+    error('We could not find a tracker for this, sorry');
+}
+
+function error(msg) {
+    if (!error_elt) {
+        error_elt = document.createElement('p');
+        document.body.appendChild(error_elt);
+    }
+    error_elt.textContent = msg;
+}
+
+})();
+</script>
