@@ -48,21 +48,22 @@ function initUI() {
 }
 
 function redirectToBugTracker(url) {
-    var got_a_match = false;
-
     var url = sanitize_url(url);
 
-    trackers.forEach(function (tracker) {
+    for (var i=0, il=trackers.length; i<il; i++) {
+        var tracker = trackers[i];
         var reg = new RegExp(tracker.regexp);
         if (reg.test(url)) {
-            got_a_match = true;
-            window.location = tracker.tracker;
+            error('');
+            if (window.location.search.indexOf('debug') !== -1) {
+                console.log(tracker.tracker);
+            } else {
+                window.location = tracker.tracker;
+            }
+            return;
         }
-    })
-
-    if (got_a_match) {
-        return;
     }
+
     error('We could not find a bug tracker for this, sorry.');
 }
 
