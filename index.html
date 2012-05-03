@@ -32,10 +32,17 @@ function initUI() {
         var url = document.getElementsByName('url')[0];
         redirectToBugTracker(url.value);
     }, false);
+
+    if (window.location.hash) {
+        var url = window.location.hash.split('#')[1];
+        redirectToBugTracker(url);
+    }
 }
 
 function redirectToBugTracker(url) {
     var got_a_match = false;
+
+    var url = sanitize_url(url);
 
     trackers.forEach(function (tracker) {
         var reg = new RegExp(tracker.regexp);
@@ -49,6 +56,10 @@ function redirectToBugTracker(url) {
         return;
     }
     error('We could not find a tracker for this, sorry');
+}
+
+function sanitize_url(url) {
+    return url.replace(/^http(s)?:\/\//, '');
 }
 
 function error(msg) {
