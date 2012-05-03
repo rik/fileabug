@@ -1,7 +1,18 @@
 [
-    {"regexp": "^www.mozilla.org/((\\w){2}/)?thunderbird/", "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=www.mozilla.org/thunderbird"},
-    {"regexp": "^www.mozilla.org", "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=www.mozilla.org"},
-    {"regexp": "^affiliates.mozilla.org", "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=affiliates.mozilla.org"},
-    {"regexp": "^download.mozilla.org", "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Webtools&component=Bouncer"},
-    {"regexp": "^mozillians.org", "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Community%20Tools&component=Phonebook"}
+    {"regexp": "^www.mozilla.org/((\\w){2}/)?thunderbird",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=www.mozilla.org/thunderbird"},
+    {"regexp": "^www.mozilla.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=www.mozilla.org"},
+    {"regexp": "^affiliates.mozilla.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=affiliates.mozilla.org"},
+    {"regexp": "^download.mozilla.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Webtools&component=Bouncer"},
+    {"regexp": "^mozillians.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Community%20Tools&component=Phonebook"},
+    {"regexp": "^mozillians.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Community%20Tools&component=Phonebook"},
+    {"regexp": "^support.mozilla.org/((\\w){2}/)?search",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=support.mozilla.org&component=Search"},
+    {"regexp": "^support.mozilla.org",
+    "tracker": "https://bugzilla.mozilla.org/enter_bug.cgi?product=support.mozilla.org&component=General"}
 ]
